@@ -115,7 +115,7 @@ function isPrime(num) {
 // is your name?”
 
 function sayHi(obj) {
-    if (obj.name && obj.age) return `Hi, my name is ${obj.name}, I am ${obj.age} years old`;
+    if (obj.hasOwnProperty(name) && obj.hasOwnProperty(age)) return `Hi, my name is ${obj.name}, I am ${obj.age} years old`;
     return "Hi, what is your name?";
 }
 
@@ -309,11 +309,131 @@ function numberInfo(arr) {
 }
 
 
+// 18. Գրել ծրագիր, որը օգտագործողից կհարցնի ցանկացած երկարության string: Եթե դրա
+// երկարությունը 20-ից մեծ է, ծրագիրը ուղղակի կտպի տողը նույնությամբ: Հակառակ
+// դեպքում պետք է տպվի նույն տողը, բայց բոլոր «կենտ-երորդ» (1,3,5...-րդ տառերը)
+// տառերը կլինեն մեծատառով, իսկ բոլոր «զույգ-երորդ» (2, 4, 6...-րդ տառերը) տառերը՝
+// փոքրատառով: Չշփոթել ինդեքսի հետ:
+//     Օրինակ՝
+// 1. Program: “Please, enter a string.”
+// User: “abcde”
+// Program: “AbCdE”
+// 2. Program: “Please, enter a string.”
+// User:
+//     “aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”
+// Program:
+//     “aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa”
+
+// let str = prompt("Please, enter a string.");
+
+// const changeStr = (str) => {
+//     if (str.length > 20) {
+//         console.log(str);
+//         return;
+//     }
+//     ;
+//     let arr = str.split("");
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i].charCodeAt(0) % 2 && arr[i].charCodeAt(0) >= 97 && arr[i].charCodeAt(0) <= 122) {
+//             arr[i] = String.fromCharCode(arr[i].charCodeAt(0) - 32);
+//         }
+//     }
+//     console.log(arr.join(""))
+// }
+
+// changeStr("abcdepqrtuvwxyz")
 
 
+// 21. Գրել ֆունկցիա, որը մուտքում ստանալով հայերեն տեքստ, կվերադարձնի այդ
+// տեքստում եղած ձայնավորների քանակը։
 
 
+const vowelCount = (word) => {
+    let arr = ['ա', 'ի', 'ւ', 'օ', 'է', 'ը'];
+    let arrWord = word.split("");
+    let count = 0;
+    for (let i = 0; i < word.length; i++) {
+        if (arr.indexOf(arrWord[i]) !== -1) {
+            count++;
+        }
+    }
+    return count;
+}
+
+// 22. Գրել ֆունկցիա, որը մուտքում ստանալով բառ, կստուգի թե արդյոք այդ բառը
+// պալինդրոմ է։ Պալինդրոմ է համարվում այն տեքստը, որը թե՛ սկզբից, թե՛ վերջին նույն
+// կերպ է կարդացվում։
 
 
+const isPalindrom = (str) => {
+    let arr = str.split("");
+    for (let i = 0; i < arr.length / 2; i++) {
+        if (arr[i] !== arr[arr.length - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// 23․ Ունեք երկու թվային արժեքով փոփոխական: Գրել ծրագիր, որը առանց
+// օգտագործելու որևէ երրորդ փոփոխական, նրանք արժեքները տեղերով կփոխի։
+// Օրինակ եթե a === 4 և b === 7, ծրագիրը պետք է a-ն սարքի 7, իսկ b-ն 4։
 
 
+const changeValue = (num1, num2) => {
+    num2 = num1 + num2;
+    num1 = num2 - num1;
+    num2 = num2 - num1;
+    console.log(num1, num2)
+}
+
+// 24. Գրել ֆունցկիա, որը մուտքում ստանալով շրջանի շառավիղ, կվերադարձնի մի
+// օբյեկտ, որը պարունակում է այդ շրջանի մակերեսի և շրջանագծի արժեքները։
+
+const circle = (r) => {
+    let obj = {
+        area: 0,
+        length: 0
+    }
+
+    obj.area = Math.PI * Math.pow(r, 2);
+    obj.length = 2 * Math.PI * r;
+    console.log(obj);
+}
+
+// 25․ Գրել ֆունկցիա, որը ստանալով տրված հոդվածների օբյեկտների զանգվածը,
+//     սորտավորում է նրանց ըստ տարեթվի։
+
+const sortByYear = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        let isSwap = true;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j].year < arr[i].year) {
+                let tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                isSwap = false;
+            }
+        }
+        if (isSwap) return arr;
+    }
+    return arr;
+}
+
+console.log(sortByYear([
+    {
+        title: "Veganism",
+        author: "Poghos",
+        year: 2005
+    },
+    {
+        title: "Modern Philosophy",
+        author: "Petros",
+        year: 2019
+    },
+    {
+        title: "The Invention of the Internet",
+        author: "Karapet",
+        year: 1995
+    }
+]))
