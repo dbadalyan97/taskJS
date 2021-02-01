@@ -764,4 +764,54 @@
 //     return arr;
 // }
 
-// console.log(getFailedArray("srt", 3))
+// console.log(getFailedArray("srt", 3));
+
+
+
+
+//44.There’s a ladder object that allows to go up and down:
+// Now, if we need to make several calls in sequence, can do it like this:
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// Modify the code of up, down and showStep to make the calls chainable, like this:
+// ladder.up().up().down().showStep(); // 1
+
+
+// let ladder = {
+//     step: 0,
+//     up() {
+//         this.step++;
+//         return this;
+//     },
+//     down() {
+//         this.step--;
+//         return this;
+//     },
+//     showStep: function () { // shows the current step
+//         console.log(this.step);
+//     }
+// };
+//
+// console.log(ladder.up().up().down().showStep());
+
+
+//45.Ստեղծել sum անունով ֆունկցիա, որը գումարվում է զանգվածի բոլոր արժեքները: 
+// Նշենք, որ զանգվածը որպես արժեք կարող է ունենալ զանգված:
+
+
+// const sumElems = (arr) => {
+// //
+// //     let sum = 0;
+// //     for (let i = 0; i < arr.length; i++) {
+// //         if (Array.isArray(arr[i])) {
+// //             sum += sumElems(arr[i]);
+// //         } else {
+// //             sum += arr[i];
+// //         }
+// //     }
+// //     return sum;
+// // }
+// //
+// // console.log(sumElems([4, 3, [8, 2], [3, 6, [9, 12, 33], 6], 7, 8, 9]))
