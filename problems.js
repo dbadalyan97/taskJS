@@ -800,7 +800,7 @@
 //45.Ստեղծել sum անունով ֆունկցիա, որը գումարվում է զանգվածի բոլոր արժեքները: 
 // Նշենք, որ զանգվածը որպես արժեք կարող է ունենալ զանգված:
 
-
+//Recursion
 // const sumElems = (arr) => {
 // //
 // //     let sum = 0;
@@ -814,4 +814,23 @@
 // //     return sum;
 // // }
 // //
-// // console.log(sumElems([4, 3, [8, 2], [3, 6, [9, 12, 33], 6], 7, 8, 9]))
+// // console.log(sumElems([4, 3, [8, 2], [3, 6, [9, 12, 33], 6], 7, 8, 9]));
+
+
+//Without Recurtion
+
+// function flatten(arr) {
+//     const singleArr = [];
+//     while (arr.length) {
+//         // console.log(arr)
+//         const next = arr.pop();
+//         if (Array.isArray(next)) {
+//             arr.push(...next);
+//         } else {
+//             singleArr.push(next);
+//         }
+//     }
+//     return singleArr.reduce((a, b) => a + b);
+// }
+
+// console.log(flatten([4, 3, [8, 2], [3, 6, [9, 12, 33], 6], 7, 8, 9]));
